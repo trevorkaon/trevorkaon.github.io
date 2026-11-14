@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Trevor Kaon | Academic Homepage</title>
+<meta content="Trevor Kaon is a prospective PhD student interested in human-centred security and privacy for resource-constrained organisations and underserved users." name="description"/>
+<meta content="Trevor Kaon" name="author"/>
+<meta content="Trevor Kaon | Academic Homepage" property="og:title"/>
+<meta content="Prospective PhD student in human-centred security and privacy. Research on organisational security in the Majority World and security &amp; privacy for underserved users." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://trevorkaon.github.io/" property="og:url"/>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🛡️&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #ffffff;
+    --ink: #111827;
+    --muted: #4b5563;
+    --faint: #6b7280;
+    --accent: #0e6e5c;
+    --accent-hover: #0a5547;
+    --accent-tint: rgba(14, 110, 92, 0.08);
+    --line: #e5e7eb;
+    --chip-bg: #edf6f0;
+    --chip-border: #d3dcd7;
+    --chip-ink: #2b3934;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111418;
+      --ink: #e7e9ee;
+      --muted: #a9b0bb;
+      --faint: #8b93a0;
+      --accent: #3fbfa4;
+      --accent-hover: #5ed4bb;
+      --accent-tint: rgba(63, 191, 164, 0.12);
+      --line: #2a2f37;
+      --chip-bg: #1a2421;
+      --chip-border: #2e3d37;
+      --chip-ink: #c2cfc9;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #111418;
+    --ink: #e7e9ee;
+    --muted: #a9b0bb;
+    --faint: #8b93a0;
+    --accent: #3fbfa4;
+    --accent-hover: #5ed4bb;
+    --accent-tint: rgba(63, 191, 164, 0.12);
+    --line: #2a2f37;
+    --chip-bg: #1a2421;
+    --chip-border: #2e3d37;
+    --chip-ink: #c2cfc9;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: inherit; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.625;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .wrap {
+      padding: 3.5rem 2rem 5rem;
+    }
+    .grid {
+      grid-template-columns: 240px 1fr;
+      gap: 3.5rem;
+    }
+    aside {
+      position: sticky;
+      top: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 250px 1fr;
+      gap: 4rem;
+    }
+  }
+
+  h1, h2, h3, p, ul { margin: 0; }
+
+  h1, h2 {
+    font-family: "Newsreader", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  h1 {
+    font-size: 29px;
+    line-height: 1.2;
+    color: var(--accent);
+    margin-bottom: 0.875rem;
+  }
+
+  h2 {
+    font-size: 23px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .portrait {
+    display: block;
+    width: 140px;
+    height: 140px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    margin-bottom: 0.875rem;
+    background: var(--chip-bg);
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .icons a:hover {
+    color: var(--accent-hover);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+
+  .icons a:focus-visible {
+    border-radius: 4px;
+  }
+
+  .icons svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .icons .orcid {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .icons a.orcid:focus-visible {
+    border-radius: 50%;
+  }
+
+  .role {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.875rem;
+    color: var(--ink);
+  }
+
+  .meta-list {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding-bottom: 1.15rem;
+    margin-bottom: 1.15rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .meta-list p + p { margin-top: 0.5rem; }
+  .meta-list strong { font-weight: 500; color: var(--ink); }
+
+  nav.sections-nav {
+    display: flex;
+    gap: 0.45rem;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 767px) {
+    .grid { gap: 0; }
+    aside { display: contents; }
+
+    nav.sections-nav {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      z-index: 100;
+      flex-direction: row;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0.65rem 0.5rem;
+      margin: 0.5rem -1.25rem 1.5rem;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+      background: color-mix(in srgb, var(--bg) 95%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    nav.sections-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    nav.sections-nav.scrolled {
+      box-shadow: 0 4px 16px -2px rgba(14, 110, 92, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
+      border-bottom-color: rgba(14, 110, 92, 0.2);
+    }
+
+    nav.sections-nav a {
+      white-space: nowrap;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--chip-ink);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 13px;
+      transition: all 0.15s ease;
+    }
+
+    nav.sections-nav a:focus-visible {
+      border-radius: 9999px;
+    }
+
+    nav.sections-nav a.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 2px 6px rgba(14, 110, 92, 0.25);
+    }
+  }
+
+  @media (min-width: 768px) {
+    nav.sections-nav {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    nav.sections-nav a {
+      display: block;
+      padding: 0.35rem 0.65rem;
+      border-radius: 4px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 400;
+      border-left: 2.5px solid transparent;
+      transition: all 0.15s ease;
+    }
+
+    nav.sections-nav a:hover {
+      color: var(--accent);
+      background: var(--accent-tint);
+      text-decoration: none;
+    }
+
+    nav.sections-nav a:focus-visible {
+      border-radius: 4px;
+    }
+
+    nav.sections-nav a.active {
+      color: var(--accent);
+      font-weight: 600;
+      background: var(--accent-tint);
+      border-left-color: var(--accent);
+    }
+  }
+
+  main > section + section {
+    margin-top: 2.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  section p {
+    color: var(--ink);
+    max-width: 66ch;
+  }
+
+  section p + p { margin-top: 0.85rem; }
+
+  .interest + .interest { margin-top: 1.75rem; }
+
+  .interest .q {
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 0.45rem;
+    line-height: 1.55;
+  }
+
+  .interest .d {
+    font-size: 14.5px;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .note {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 0.75rem;
+  }
+
+  .edu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 640px) {
+    .edu {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+  }
+
+  .edu span {
+    font-size: 13px;
+    color: var(--faint);
+  }
+
+  .grade {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 0.35rem;
+  }
+
+  .repo {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 0.85rem;
+  }
+
+  .repo a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .advisories {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+  }
+
+  .advisories li {
+    border-left: 2.5px solid var(--accent);
+    padding: 0.25rem 0 0.25rem 0.85rem;
+  }
+
+  .advisories li + li {
+    margin-top: 1.15rem;
+  }
+
+  .advisories li.pending {
+    border-left-color: var(--line);
+  }
+
+  .advisories-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .advisories .id {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .advisories .sev {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .advisories .t {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .advisories p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-top: 0.2rem;
+  }
+
+  .advisories p.when {
+    color: var(--faint);
+    font-size: 12.5px;
+    margin-top: 0.25rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="grid">
+<aside>
+<h1>Trevor Kaon</h1>
+<img alt="Portrait of Trevor Kaon" class="portrait" height="140" src="portrait.jpg" width="140"/>
+<div class="icons">
+<a aria-label="Email" href="mailto:kaon.trevor.research@gmail.com" title="Email">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5.2 8-5.2V6H4zm16 2.8-8 5.2-8-5.2V18h16V8.8z"></path></svg>
+</a>
+<a aria-label="GitHub" href="https://github.com/trevorkaon" rel="me noopener" title="GitHub">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+</a>
+<a aria-label="ORCID" class="orcid" href="https://orcid.org/0009-0007-0562-1331" rel="me noopener" title="ORCID">iD</a>
+</div>
+<p class="role">Prospective PhD student in human-centred security and privacy</p>
+<div class="meta-list">
+<p><strong>Email:</strong><br/><a href="mailto:kaon.trevor.research@gmail.com">kaon.trevor.research@gmail.com</a></p>
+<p><strong>GitHub:</strong><br/><a href="https://github.com/trevorkaon" rel="noopener">github.com/trevorkaon</a></p>
+<p><strong>ORCID:</strong><br/><a href="https://orcid.org/0009-0007-0562-1331" rel="noopener">0009-0007-0562-1331</a></p>
+</div>
+<nav aria-label="Sections" class="sections-nav" id="sticky-nav">
+<a class="active" href="#about">About</a>
+<a href="#research-interests">Research Interests</a>
+<a href="#msc">MSc Research</a>
+<a href="#education">Education</a>
+<a href="#other-work">Other Work</a>
+</nav>
+</aside>
+<main>
+<section id="about">
+<h2>About</h2>
+<p>My research interests are in human-centred security and privacy.</p>
+<p>I’d welcome conversations with potential supervisors about PhD opportunities in human-centred security and privacy.</p>
+</section>
+<section id="research-interests">
+<h2>Research Interests</h2>
+<article class="interest">
+<h3>Organisational Security in the Majority World</h3>
+<p class="q">How do resource-constrained micro, small and medium-sized enterprises (MSMEs) in the Majority World perceive, prioritise and operationalise security?</p>
+<p class="d">This question draws on more than a decade of experience in information security and operations leadership. I want to understand how staffing, budgets and day-to-day operational needs shape which security measures MSMEs can put into practice.</p>
+</article>
+<article class="interest">
+<h3>Security &amp; Privacy for Underserved Users</h3>
+<p class="q">How do underserved users experience security and privacy in the digital systems they must use?</p>
+<p class="d">I’m interested in how language barriers, inaccessible interfaces and limited support shape the security and privacy choices people can make. I want to understand what would help people protect their information when they have few alternatives.</p>
+</article>
+</section>
+<section id="msc">
+<h2>MSc Research</h2>
+<h3>GPON Fraud Detection via Real-time OLT Events Processing</h3>
+<p style="margin-top: 0.5rem;">MSc dissertation, Strathmore University, 2025. I designed and built a real-time fraud detection prototype for fibre access networks using open-source tools. On a controlled testbed, it detected all tested events across three simulated fraud scenarios involving rogue device registration, service account misuse, and unauthorised bandwidth changes. Mean alert latency across the three scenarios was 2.48 seconds.</p>
+<p class="note">Building and testing this prototype shaped my interest in how organisations integrate security controls into day-to-day operations.</p>
+</section>
+<section id="education">
+<h2>Education</h2>
+<div class="edu">
+<h3>MSc in Information Systems Security</h3>
+<span>Strathmore University, Nairobi (2025)</span>
+</div>
+<p class="grade">Grade A · Distinction · GPA 3.79/4.0</p>
+</section>
+<section id="other-work">
+<h2>Other Work</h2>
+<p>I conduct independent vulnerability research on business and operations support systems (BSS/OSS). I report findings to vendors first and publish after a fix is available or the coordinated disclosure period has elapsed. Public advisories omit customer, deployment and environment identifiers.</p>
+<p class="repo"><a href="https://github.com/trevorkaon/vulnerability-security-research" rel="noopener">Vulnerability advisory repository →</a></p>
+<ul class="advisories">
+<li>
+<div class="advisories-head">
+<a class="id" href="https://github.com/trevorkaon/vulnerability-security-research/blob/main/advisories/asiainfo/CVE-2026-122095.md" rel="noopener">CVE-2026-122095</a>
+<span class="sev">(CVSS 7.6 High)</span>
+</div>
+<p>Stored cross-site scripting via unrestricted SVG upload in the management console of the AsiaInfo BSS Platform, versions 9.2.0 to 9.2.37.</p>
+<p class="when">Fixed in 9.2.38. Published 5 November 2026.</p>
+</li>
+<li>
+<div class="advisories-head">
+<a class="id" href="https://github.com/trevorkaon/vulnerability-security-research/blob/main/advisories/asiainfo/CVE-2026-125297.md" rel="noopener">CVE-2026-125297</a>
+<span class="sev">(CVSS 9.8 Critical)</span>
+</div>
+<p>Management API reachable without authentication in the AsiaInfo BSS Platform, versions 9.2.0 to 9.2.40, allowing administrator password reset, privileged account creation and consumer secret disclosure.</p>
+<p class="when">Fixed in 9.2.41. Published 10 November 2026.</p>
+</li>
+<li>
+<div class="advisories-head">
+<a class="id" href="https://github.com/trevorkaon/vulnerability-security-research/blob/main/advisories/asiainfo/CVE-2026-125298.md" rel="noopener">CVE-2026-125298</a>
+<span class="sev">(CVSS 9.8 Critical)</span>
+</div>
+<p>Authorisation service accepts JWTs without verifying the signature in the AsiaInfo BSS Platform, versions 9.2.0 to 9.2.40.</p>
+<p class="when">Fixed in 9.2.41. Published 10 November 2026.</p>
+</li>
+<li class="pending">
+<div class="t">Additional finding in coordinated disclosure</div>
+<p>A further vulnerability is in coordinated disclosure through the CERT Coordination Center. Details will be published after the coordinated release.</p>
+<p class="when">Public release expected November 2026.</p>
+</li>
+</ul>
+</section>
+</main>
+</div>
+</div>
+<script>
+  (function() {
+    const nav = document.getElementById('sticky-nav');
+    function updateScrollShadow() {
+      if (window.scrollY > 8) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateScrollShadow, { passive: true });
+    updateScrollShadow();
+
+    const navLinks = document.querySelectorAll('nav.sections-nav a');
+    const sections = document.querySelectorAll('main > section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === '#' + id) {
+              link.classList.add('active');
+              if (window.innerWidth < 768 && typeof link.scrollIntoView === 'function') {
+                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+  })();
+</script>
+</body>
+</html>
