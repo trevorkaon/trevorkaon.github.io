@@ -254,7 +254,10 @@
   }
 
   @media (max-width: 767px) {
-    html { scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px)); }
+    html {
+      scroll-behavior: auto;
+      scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+    }
     .wrap {
       padding: 1rem max(1.25rem, env(safe-area-inset-right, 0px)) 3rem
         max(1.25rem, env(safe-area-inset-left, 0px));
