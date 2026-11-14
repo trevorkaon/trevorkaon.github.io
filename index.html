@@ -221,9 +221,12 @@
     line-height: 1;
   }
 
-  .icons a.orcid:focus-visible {
+  .icons a.orcid-link:focus-visible {
     border-radius: 50%;
   }
+
+  .profile-header { display: contents; }
+  .icon-label { display: none; }
 
   .role {
     font-size: 14px;
@@ -251,8 +254,66 @@
   }
 
   @media (max-width: 767px) {
-    .grid { gap: 0; }
+    html { scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px)); }
+    .wrap {
+      padding: 1rem max(1.25rem, env(safe-area-inset-right, 0px)) 3rem
+        max(1.25rem, env(safe-area-inset-left, 0px));
+    }
+    .grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
     aside { display: contents; }
+
+    .profile-header {
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr);
+      align-items: center;
+      gap: 0.35rem 0.875rem;
+    }
+
+    .profile-header h1 {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .profile-header .portrait {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      width: 68px;
+      height: 68px;
+      margin: 0;
+      border-radius: 8px;
+    }
+
+    .profile-header .role {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: start;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .profile-header .icons {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      gap: 0 0.875rem;
+      margin: 0;
+    }
+
+    .profile-header .icons a {
+      min-height: 44px;
+      gap: 0.3rem;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .profile-header .icons svg,
+    .profile-header .icons .orcid { width: 16px; height: 16px; }
+    .profile-header .icons .orcid { font-size: 10px; }
+    .icon-label { display: inline; }
+    .meta-list { display: none; }
+    main > section { scroll-margin-top: 0; }
 
     nav.sections-nav {
       position: sticky;
@@ -262,10 +323,8 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding: 0.65rem 0.5rem;
-      margin: 0.5rem -1.25rem 1.5rem;
-      padding-left: 1.25rem;
-      padding-right: 1.25rem;
+      padding: 0.45rem 3px;
+      margin: 0 0 1.25rem;
       background: color-mix(in srgb, var(--bg) 95%, transparent);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -283,6 +342,9 @@
     }
 
     nav.sections-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       white-space: nowrap;
       padding: 0.35rem 0.75rem;
       border-radius: 9999px;
@@ -292,7 +354,8 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 13px;
-      transition: all 0.15s ease;
+      transition: background-color 0.18s ease, border-color 0.18s ease,
+        color 0.18s ease, box-shadow 0.18s ease;
     }
 
     nav.sections-nav a:focus-visible {
@@ -305,6 +368,11 @@
       color: var(--bg);
       box-shadow: 0 2px 6px rgba(14, 110, 92, 0.25);
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .icons a, nav.sections-nav, nav.sections-nav a { transition: none; }
   }
 
   @media (min-width: 768px) {
@@ -482,25 +550,29 @@
 <div class="wrap">
 <div class="grid">
 <aside>
+<div class="profile-header">
 <h1>Trevor Kaon</h1>
 <img alt="Portrait of Trevor Kaon" class="portrait" height="140" src="portrait.jpg" width="140"/>
 <div class="icons">
 <a aria-label="Email" href="mailto:kaon.trevor.research@gmail.com" title="Email">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.4l8 5.2 8-5.2V6H4zm16 2.8-8 5.2-8-5.2V18h16V8.8z"></path></svg>
+<span class="icon-label">Email</span>
 </a>
 <a aria-label="GitHub" href="https://github.com/trevorkaon" rel="me noopener" title="GitHub">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+<span class="icon-label">GitHub</span>
 </a>
-<a aria-label="ORCID" class="orcid" href="https://orcid.org/0009-0007-0562-1331" rel="me noopener" title="ORCID">iD</a>
+<a aria-label="ORCID" class="orcid-link" href="https://orcid.org/0009-0007-0562-1331" rel="me noopener" title="ORCID"><span class="orcid" aria-hidden="true">iD</span><span class="icon-label">ORCID</span></a>
 </div>
 <p class="role">Prospective PhD student in human-centred security and privacy</p>
+</div>
 <div class="meta-list">
 <p><strong>Email:</strong><br/><a href="mailto:kaon.trevor.research@gmail.com">kaon.trevor.research@gmail.com</a></p>
 <p><strong>GitHub:</strong><br/><a href="https://github.com/trevorkaon" rel="noopener">github.com/trevorkaon</a></p>
 <p><strong>ORCID:</strong><br/><a href="https://orcid.org/0009-0007-0562-1331" rel="noopener">0009-0007-0562-1331</a></p>
 </div>
 <nav aria-label="Sections" class="sections-nav" id="sticky-nav">
-<a class="active" href="#about">About</a>
+<a class="active" aria-current="location" href="#about">About</a>
 <a href="#research-interests">Research Interests</a>
 <a href="#msc">MSc Research</a>
 <a href="#education">Education</a>
@@ -580,45 +652,60 @@
 </div>
 </div>
 <script>
-  (function() {
+  (() => {
     const nav = document.getElementById('sticky-nav');
-    function updateScrollShadow() {
-      if (window.scrollY > 8) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
+    const links = [...nav.querySelectorAll('a')];
+    const sections = links.map(link => document.getElementById(link.hash.slice(1)));
+    const mobile = window.matchMedia('(max-width: 767px)');
+    let current = nav.querySelector('[aria-current]');
+    let frame = 0;
+    let railTimer;
+
+    function revealCurrentLink() {
+      const link = current.getBoundingClientRect();
+      const rail = nav.getBoundingClientRect();
+      if (link.left < rail.left || link.right > rail.right) {
+        nav.scrollBy({
+          left: link.left - rail.left - (nav.clientWidth - link.width) / 2,
+          behavior: 'instant'
+        });
       }
     }
-    window.addEventListener('scroll', updateScrollShadow, { passive: true });
-    updateScrollShadow();
 
-    const navLinks = document.querySelectorAll('nav.sections-nav a');
-    const sections = document.querySelectorAll('main > section');
+    function updateNavigation() {
+      frame = 0;
+      nav.classList.toggle('scrolled', window.scrollY > 8);
+      const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop);
+      const readingLine = Math.max(scrollPadding, mobile.matches ? nav.getBoundingClientRect().bottom : 0) + 4;
+      const atEnd = window.scrollY > 0 &&
+        document.scrollingElement.scrollHeight - window.innerHeight - window.scrollY <= 2;
+      let index = 0;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === '#' + id) {
-              link.classList.add('active');
-              if (window.innerWidth < 768 && typeof link.scrollIntoView === 'function') {
-                link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-              }
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
-      });
-    }, {
-      root: null,
-      rootMargin: '-20% 0px -65% 0px',
-      threshold: 0
-    });
+      for (const [position, section] of sections.entries()) {
+        const scrollMargin = parseFloat(getComputedStyle(section).scrollMarginTop);
+        if (section.getBoundingClientRect().top <= readingLine + scrollMargin) index = position;
+      }
 
-    sections.forEach(section => observer.observe(section));
+      const next = atEnd ? links[links.length - 1] : links[index];
+      if (next === current) return;
+      current.classList.remove('active');
+      current.removeAttribute('aria-current');
+      next.classList.add('active');
+      next.setAttribute('aria-current', 'location');
+      current = next;
+
+    }
+
+    function scheduleUpdate() {
+      if (!frame) frame = requestAnimationFrame(updateNavigation);
+      clearTimeout(railTimer);
+      if (mobile.matches) railTimer = setTimeout(revealCurrentLink, 150);
+    }
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.addEventListener('hashchange', scheduleUpdate);
+    scheduleUpdate();
   })();
 </script>
 </body>
