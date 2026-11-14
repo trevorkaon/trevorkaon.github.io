@@ -528,6 +528,22 @@
     font-size: 12.5px;
   }
 
+  @media (max-width: 767px) {
+    .advisories-head {
+      align-items: center;
+      row-gap: 0;
+    }
+
+    .advisories-head a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+  }
+
   .advisories .sev {
     font-size: 12px;
     font-weight: 500;
